@@ -35,31 +35,40 @@ This project is built using Java 17 and Maven, and is designed to run on a servl
 Verify Deployment: Navigate to http://localhost:8081/smart-campus-api/api/v1/ in your browser to see the API discovery metadata.
 
 
+---
 
-Sample cURL Commands
-Here are sample commands to demonstrate successful interactions with the API:
 
-1. Root Discovery Endpoint (GET)
+# Sample cURL Commands
+
+## Here are sample commands to demonstrate successful interactions with the API:
+
+---
+
+1. **Root Discovery Endpoint (GET)**
+   
    curl -X GET http://localhost:8081/smart-campus-api/api/v1/
 
-2. Create a New Room (POST)
+3. **Create a New Room (POST)**
+   
    curl -X POST http://localhost:8081/smart-campus-api/api/v1/rooms \
      -H "Content-Type: application/json" \
      -d "{\"id\": \"LIB-301\", \"name\": \"Library Quiet Study\", \"capacity\": 50}"
 
-3. Register a New Sensor to the Room (POST)
+4. **Register a New Sensor to the Room (POST)**
+   
    curl -X POST http://localhost:8081/smart-campus-api/api/v1/sensors \
      -H "Content-Type: application/json" \
      -d "{\"id\": \"TEMP-001\", \"type\": \"Temperature\", \"status\": \"ACTIVE\", \"roomId\": \"LIB-301\"}"
    
-4. Add a Historical Sensor Reading (POST)
+5. **Add a Historical Sensor Reading (POST)**
+   
    curl -X POST http://localhost:8081/smart-campus-api/api/v1/sensors/TEMP-001/readings \
      -H "Content-Type: application/json" \
      -d "{\"id\": \"READ-999\", \"timestamp\": 1713900000000, \"value\": 22.5}"
 
-5. Retrieve Sensors Filtered by Type (GET)
+6. Retrieve Sensors Filtered by Type (GET)
   curl -X GET "http://localhost:8081/smart-campus-api/api/v1/sensors?type=Temperature"
 
-6. Attempt to Delete an Occupied Room (DELETE - Triggers 409 Conflict)
+7. Attempt to Delete an Occupied Room (DELETE - Triggers 409 Conflict)
    curl -i -X DELETE http://localhost:8081/smart-campus-api/api/v1/rooms/LIB-301
 

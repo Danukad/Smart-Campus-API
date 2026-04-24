@@ -33,7 +33,7 @@ public class GlobalExceptionMapper implements ExceptionMapper<Throwable> {
             return Response.status(Response.Status.FORBIDDEN).entity(response).build();
         }
         
-        response.put("erroe", "An internal Server error occurred. ");
+        response.put("error", "An internal Server error occurred. ");
         return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(response).build();
     }   
 }
